@@ -40,8 +40,10 @@ def run_gp_experiments(dm):
     expExectr.executeExperiments(dm, "GP_Matern_RationalQuadratic", df_experimentTracker)
 
     df_experimentTracker.to_csv('GP_Experiment_Results.csv', sep='\t',encoding='utf-8', index=False)
-    
+  
     print(df_experimentTracker.describe())
+
+    return expExectr
 
 def run_simple_dnn_experiments(dm):
     '''
@@ -61,6 +63,8 @@ def run_simple_dnn_experiments(dm):
     
     print(df_dnnexperimentTracker.describe())
  
+    return expExectr
+
 def run_pcdnn_v1_experiments(dm):
     '''
     TODO: search for '#TODO:uncomment' in the 'experiment_executor/pcdnn_v1_experiment_executor.py' uncomment & comment out the necessary lines
@@ -78,7 +82,8 @@ def run_pcdnn_v1_experiments(dm):
     df_pcdnnexperimentTracker.to_csv('PCDNNV1_Experiment_Results.csv', sep='\t',encoding='utf-8', index=False)
     
     print(df_pcdnnexperimentTracker.describe())
- 
+    return expExectr 
+
 def run_pcdnn_v2_experiments(dm):
     '''
     TODO: search for '#TODO:uncomment' in the 'experiment_executor/pcdnn_v2_experiment_executor.py' uncomment & comment out the necessary lines
@@ -99,6 +104,11 @@ def run_pcdnn_v2_experiments(dm):
     print(df_pcdnnexperimentTracker.describe())
  
     
+    #print("-----------------------------------------------")
+    
+    #bestModel.summary()
+    return expExectr
+
 def main():
     #Prepare the DataFrame that will be used downstream
     dp = DataPreparer()
